@@ -3,7 +3,7 @@
 module.exports = {
     test: {
         options: {
-            configFile: "test/protractor.conf.js",
+            configFile: 'test/protractor.conf.js',
             debug: true
             //keepAlive: true
         }
