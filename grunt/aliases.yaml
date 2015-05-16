@@ -57,7 +57,8 @@ doc:
 
 # Start a web server and open index.html
 serve:
-  - connect
+  - devall
+  - connect:dev
 
 # Start a web server and a watcher
 wserve:
