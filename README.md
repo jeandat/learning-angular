@@ -5,6 +5,13 @@ This is a very simple project to apprehend Angular, Karma, Protractor, Bower and
 
 To try it, just clone or download the project from github, then `npm start`.
 
+What it does for you is :
+- Install node dependencies: `npm install`
+- Install javascript dependencies: `bower install`
+- Install webdriver-manager (used by protractor for end-to-end tests): `node 
+node_modules/protractor/bin/webdriver-manager update`
+- Build the project and launch a web server: `grunt serve`
+
 # Build
 
 Project is built inside `build/public`.
