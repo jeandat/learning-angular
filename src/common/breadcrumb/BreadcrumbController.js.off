@@ -1,0 +1,23 @@
+angular.module('app').controller('BreadcrumbController', function($log, $scope, $location){
+
+    $log.debug('Breadcrumb Controller');
+
+    $scope.$on('$routeChangeSuccess', function(){
+        var path = $location.path();
+        path = path === '/' ? '/Home' : path;
+        var parts = path.split('/');
+        var crumbs = [];
+        var cumulatedPath = '';
+        parts.forEach(function(value){
+            if(!value) return;
+            cumulatedPath += '/' + value;
+            crumbs.push({
+                name: value,
+                url: cumulatedPath
+            });
+
+        });
+        $scope.crumbs = crumbs;
+    });
+
+});

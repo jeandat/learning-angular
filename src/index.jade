@@ -1,0 +1,36 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        base(href="/")
+        title Learning Angular
+        link(rel="stylesheet", type="text/css", href="css/vendor.css")
+        link(rel="stylesheet", type="text/css", href="css/app.css")
+    body
+
+        // Angular root scope
+        div.container-fluid.js-app(ng-app="app", ng-strict-di)
+
+            // Navbar
+            nav.row(ng-include="'common/navbar/navbar'", ng-controller="NavbarController")
+
+            // Loading message
+            div#loader(ng-include="'common/loader/loader'", ng-controller='LoaderController')
+
+            // Breadcrumb : removed cause useless here
+            // div.row(ng-include="'common/breadcrumb/breadcrumb'", ng-controller='BreadcrumbController')
+
+            // Views content injected here
+            div.row(ng-view autoscroll="")
+
+
+
+        //- Vendors
+        script(src="js/vendors.js")
+
+        //- Templates used in this app
+        script(src="js/templates.js")
+
+        //- Main
+        script(src="js/app.js")

@@ -1,0 +1,4 @@
+ol.breadcrumb(ng-if='crumbs && crumbs.length > 1')
+    li(ng-repeat='crumb in crumbs', ng-class='{active: $last}')
+        a(ng-if='!$last', ng-href="{{crumb.url}}") {{crumb.name}}
+        span(ng-if='$last') {{crumb.name}}

@@ -1,0 +1,5 @@
+div#comic-list.content
+
+    ul.list
+        li(ng-repeat="novel in novels", ng-class-odd="'odd'")
+            a(ng-href="/comic/{{novel.id}}") {{novel.title}}

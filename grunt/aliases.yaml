@@ -1,0 +1,80 @@
+
+# Default build for dev
+default:
+    - newer:jshint:dev
+    - newer:jscs
+    - newer:replace
+    - stylus:dev
+    - newer:copy
+    - newer:jade:index
+    - concat
+    - autoprefixer
+    - html2js:dev
+    - ngAnnotate
+
+
+
+# Default build without usage of newer
+devall:
+    - clean:build
+    - jshint:dev
+    - jscs
+    - replace
+    - stylus:dev
+    - copy
+    - jade:index
+    - concat
+    - autoprefixer
+    - html2js:dev
+    - ngAnnotate
+
+
+
+# Distribution build: same as defaultAll + uglify
+dist:
+    - clean:build
+    - jshint:dist
+    - jscs
+    - replace
+    - stylus:dist
+    - copy
+    - jade:index
+    - concat
+    - autoprefixer
+    - ngAnnotate
+    - html2js:dist
+    - uglify:dist
+
+
+
+# Generate documentation and stats
+doc:
+    - clean:doc
+    - groc
+    - plato
+
+
+
+# Start a web server and open index.html
+serve:
+  - connect
+
+# Start a web server and a watcher
+wserve:
+  - concurrent:serve
+
+
+
+# Launch karma in single run mode for Chrome and Firefox
+test:
+  - karma:dev
+
+# Launch karma in watch mode for Chrome only and a watcher (chokidar)
+wtest:
+  - concurrent:wtest
+
+# Launch a web server (connect) and protractor in single run mode for Chrome and Firefox
+test_e2e:
+  - connect:test
+  - protractor
+
