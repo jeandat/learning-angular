@@ -5,7 +5,7 @@
     "scripts": {
         "prestart": "npm install",
         "postinstall": "bower install && node node_modules/protractor/bin/webdriver-manager update",
-        "start": "grunt serve",
+        "start": "grunt devall && grunt serve",
         "test": "grunt test"
     },
     "author": "jdat82",
