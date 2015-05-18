@@ -12,13 +12,17 @@ module.exports = function (config) {
         singleRun: true,
         logLevel: 'INFO',
         frameworks: ['jasmine'],
-        reporters: ['progress', 'coverage'],
+        reporters: ['progress', 'coverage', 'junit'],
         preprocessors: {
             'build/gen/js/**/*.js': ['coverage']
         },
         coverageReporter: {
             type: 'html',
             dir: 'doc/test/coverage'
+        },
+        junitReporter: {
+            outputFile: 'doc/test/junit/test-results.xml',
+            suite: ''
         },
         browsers: ['Chrome', 'Firefox']
     });
