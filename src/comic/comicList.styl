@@ -1,0 +1,26 @@
+#comic-list
+
+    .comic-item
+        position relative
+        padding 1rem 1rem 1rem 8rem
+        height 10rem
+
+    a
+        height auto
+
+    .meta
+        font-style italic
+        margin-top .5rem
+        font-size 1.2rem
+
+    .thumbnail
+        position absolute
+        top 1rem
+        bottom 1rem
+        left 1rem
+        height 85%
+        filter saturate(0%)
+        transition filter 400ms
+
+        &:hover
+            filter saturate(100%)
