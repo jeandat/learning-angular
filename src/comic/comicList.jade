@@ -2,8 +2,4 @@ div#comic-list.content
 
     ul.list
         li(ng-repeat="novel in novels", ng-class-odd="'odd'" class="comic-item")
-            img.thumbnail(ng-src="{{novel.thumbnail.path + '.' + novel.thumbnail.extension}}")
-            a(ng-href="/comic/{{novel.id}}") {{novel.title}}
-            div.meta.ean EAN: {{novel.ean}}
-            div.meta.isbn ISBN: {{novel.isbn}}
-            div.meta.price(ng-if='novel.prices.length') Price: {{novel.prices[0].price | currency}}
+            comic-list-item
