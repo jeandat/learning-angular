@@ -3,6 +3,9 @@ exports.config = {
         'e2e/**/*.js'
     ],
     rootElement: '.js-app',
-    browserName: 'chrome',
+    directConnect: true,
+    capabilities:{
+        browserName: 'chrome'
+    },
     framework: 'jasmine2'
 };
