@@ -61,11 +61,7 @@ module.exports = function (grunt) {
 
     // Loads the various task configuration files
     var configs = require('load-grunt-config')(grunt, {
-        jitGrunt: {
-            staticMappings:{
-                protractor: 'grunt-protractor-runner'
-            }
-        },
+        jitGrunt: true,
         data: {
             build: {
                 root: 'build',

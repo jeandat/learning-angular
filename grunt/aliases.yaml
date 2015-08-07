@@ -55,27 +55,37 @@ doc:
 
 
 
-# Start a web server and open index.html
+# Build then start a web server and open index.html
 serve:
   - devall
-  - connect:dev
+  - connect:keepalive
 
-# Start a web server and a watcher
+# Build then start a web server, a watcher and open index.html
 wserve:
+  - devall
   - concurrent:serve
 
 
 
-# Launch karma in single run mode for Chrome and Firefox
+# Build then launch karma in single run mode for Chrome and Firefox
 test:
+  - devall
   - karma:dev
 
-# Launch karma in watch mode for Chrome only and a watcher (chokidar)
+# Build then launch karma in watch mode for Chrome only and a watcher (chokidar).
+# Usually you want to test in one browser while developping and test all others after.
 wtest:
+  - devall
   - concurrent:wtest
 
-# Launch a web server (connect) and protractor in single run mode for Chrome and Firefox
+
+
+
+# Build then launch a web server (connect) and protractor in single run mode for Chrome and Firefox
 test_e2e:
-  - connect:test
+  - devall
+  - connect:singlerun
   - protractor
 
+# TODO write a generic task that will launch connect only if it is not running.
+# Find a way to launch protractor from grunt

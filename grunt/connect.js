@@ -17,13 +17,13 @@ module.exports = {
             return middlewares;
         }
     },
-    dev: {
+    keepalive: {
         options:{
             keepalive: true,
             open: true
         }
     },
-    test:{
+    singlerun:{
         keepalive: false
     }
 };
