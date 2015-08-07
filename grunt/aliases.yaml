@@ -58,7 +58,7 @@ doc:
 # Build then start a web server and open index.html
 serve:
   - devall
-  - connect:keepalive
+  - connect:dev:keepalive
 
 # Build then start a web server, a watcher and open index.html
 wserve:
@@ -67,7 +67,8 @@ wserve:
 
 
 
-# Build then launch karma in single run mode for Chrome and Firefox
+# Build then launch karma in single run mode for Chrome and Firefox.
+# Suitable for CI.
 test:
   - devall
   - karma:dev
@@ -82,10 +83,12 @@ wtest:
 
 
 # Build then launch a web server (connect) and protractor in single run mode for Chrome and Firefox
+# Suitable for CI.
 test_e2e:
   - devall
-  - connect:singlerun
-  - protractor
+  - connect:test
+  - exec:protractor
 
-# TODO write a generic task that will launch connect only if it is not running.
-# Find a way to launch protractor from grunt
+# While developping e2e tests, it is more suitable to use 'grunt wserve' to launch a web server and watch for changes in app files.
+# Then you can use 'grunt exec:protractor' to launch protractor manually or directly :
+# node node_modules/protractor/bin/protractor test/protractor.conf.js <options>

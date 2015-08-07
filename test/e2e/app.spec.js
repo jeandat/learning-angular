@@ -14,7 +14,4 @@ describe('Index', function() {
         //    expect(conclusions.html()).toContains('I\'m truly convinced by');
         //});
     //});
-
-    // TODO configurer le build pour lancer un seul navigateur en mode dév et utiliser le serveur web courant
-    // En gros faut un mode dév et un mode integration continue
 });

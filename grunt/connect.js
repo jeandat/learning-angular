@@ -4,8 +4,8 @@ var modRewrite = require('connect-modrewrite');
 
 module.exports = {
     options: {
-        port: 9001,
         base: '<%= build.pub %>',
+        port: 9001,
         debug: true,
         middleware: function (connect, options, middlewares) {
             // Matches everything that does not contain a '.' (period)
@@ -17,13 +17,14 @@ module.exports = {
             return middlewares;
         }
     },
-    keepalive: {
-        options:{
-            keepalive: true,
+    dev: {
+        options: {
             open: true
         }
     },
-    singlerun:{
-        keepalive: false
+    test: {
+        options: {
+            open: false
+        }
     }
 };

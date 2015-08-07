@@ -4,8 +4,10 @@ exports.config = {
     ],
     rootElement: '.js-app',
     directConnect: true,
-    capabilities:{
+    multiCapabilities:[{
         browserName: 'chrome'
-    },
+    },{
+        browserName: 'firefox'
+    }],
     framework: 'jasmine2'
 };

@@ -6,7 +6,7 @@ module.exports = {
     },
     // Launch a web server and a watch server
     serve: {
-        tasks: ['connect:keepalive', 'chokidar']
+        tasks: ['connect:dev:keepalive', 'chokidar']
     },
     // Launch a karma server in watch mode for Chrome only and a watch server
     wtest: {
