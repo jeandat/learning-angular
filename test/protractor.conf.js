@@ -1,6 +1,8 @@
 var _ = require('lodash');
 exports.config = {
     specs: [
+        'e2e/common/**/*.js',
+        'e2e/index.spec.js',
         'e2e/**/*.js'
     ],
     rootElement: '.js-app',
