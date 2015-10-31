@@ -1,8 +1,8 @@
 {
-  "name": "Tenisu",
+  "name": "learning-angular",
   "version": "0.0.1",
   "authors": [
-    "jdat82 <jdat82@gmail.com>"
+    "jdat82 <jean.dat@gmail.com>"
   ],
   "license": "MIT",
   "private": true,
@@ -21,5 +21,8 @@
     "angular-markdown-directive": "~0.3.1",
     "angular-mocks": "~1.3.15",
     "restangular": "~1.5.1"
+  },
+  "resolutions": {
+    "angular": "1.3.15"
   }
 }
