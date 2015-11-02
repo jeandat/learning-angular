@@ -1,7 +1,5 @@
 
-
 ![](https://img.shields.io/david/dev/jdat82/learning-angular.svg)
-![](https://img.shields.io/github/release/jdat82/learning-angular.svg)
 
 # Overview
 
