@@ -1,4 +1,6 @@
 
+![](https://img.shields.io/david/dev/jdat82/learning-angular.svg)
+
 # Overview
 
 This is a very simple project to apprehend Angular, Karma, Protractor, Bower and Bootstrap.
