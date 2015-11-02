@@ -1,7 +1,7 @@
 {
   "name": "learning-angular",
   "description": "This is a very simple project to apprehend Angular, Karma, Protractor, Bower and Bootstrap.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "prestart": "npm install",
     "postinstall": "bower install && node node_modules/protractor/bin/webdriver-manager update",
