@@ -1,4 +1,5 @@
 
+[![Build Status](https://travis-ci.org/jdat82/learning-angular.svg)](https://travis-ci.org/jdat82/learning-angular)
 ![](https://img.shields.io/david/dev/jdat82/learning-angular.svg)
 
 # Overview
