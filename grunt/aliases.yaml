@@ -92,3 +92,10 @@ test_e2e:
 # While developping e2e tests, it is more suitable to use 'grunt wserve' to launch a web server and watch for changes in app files.
 # Then you can use 'grunt exec:protractor' to launch protractor manually or directly :
 # node node_modules/protractor/bin/protractor test/protractor.conf.js <options>
+
+# Travis CI
+test_travis:
+  - devall
+  - karma:travis
+  - connect:test
+  - exec:protractor_travis

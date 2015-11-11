@@ -9,11 +9,14 @@ exports.config = {
     directConnect: true,
     getMultiCapabilities: function () {
 
-        var capabilities = _({
+        var browsers = {
             chrome: {browserName: 'chrome'},
             firefox: {browserName: 'firefox'}
-        });
+        };
 
+        var capabilities = _(browsers);
+
+        // Check --params.browsers command-line arg
         if (!this.params.browsers) {
             return capabilities.values().value();
         }

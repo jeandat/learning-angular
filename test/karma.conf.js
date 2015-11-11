@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = function (config) {
-    config.set({
+
+    var configuration = {
         basePath: '..',
         files: [
             'build/public/js/vendors.js',
@@ -21,9 +22,16 @@ module.exports = function (config) {
             dir: 'doc/test/coverage'
         },
         junitReporter: {
-            outputFile: 'doc/test/junit/test-results.xml',
-            suite: ''
+            outputDir: 'doc/test/junit/'
         },
-        browsers: ['Chrome', 'Firefox']
-    });
+        browsers: ['Chrome', 'Firefox'],
+        customLaunchers: {
+            Chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        }
+    };
+
+    config.set(configuration);
 };

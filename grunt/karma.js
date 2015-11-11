@@ -18,5 +18,9 @@ module.exports = {
     // too expensive nonetheless.
     jean:{
         browsers: ['Chrome', 'Firefox', 'Opera', '/Applications/Firefox24.app/Contents/MacOS/firefox-bin']
+    },
+    // Travis configuration
+    travis:{
+        browsers: ['Chrome_travis_ci', 'Firefox']
     }
 };
