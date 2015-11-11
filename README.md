@@ -31,11 +31,13 @@ To launch a local web server and watch for changes: `grunt wserve`.
 
 # Tests
 
-To launch unit tests : `npm test` or `grunt test`.
+To launch unit tests : `grunt test`.
 
 To launch unit tests and watch for changes : `grunt wtest`.
 
 To launch e2e tests : `grunt test_e2e`.
+
+To launch unit and e2e tests in one shot: `npm test`.
 
 # Documentation
 
