@@ -1,11 +1,15 @@
 'use strict';
 
-module.exports = {
-    build: {
-        files: [{
+module.exports.tasks = {
+
+    copy: {
+        build: {
+            files: [{
                 dest: '<%= build.pub %>',
                 src: ['CONCLUSIONS.MD'],
                 expand: true
             }]
+        }
     }
+
 };
