@@ -5,8 +5,8 @@ module.exports = function (grunt) {
         return JSON.stringify(object, null, '    ');
     };
 
-    // Load grunt tasks automatically
-    require('load-grunt-tasks')(grunt);
+    // Load grunt tasks on demand
+    require('jit-grunt')(grunt);
 
     // Will print the time taken by each task at the end of the process
     require('time-grunt')(grunt);
