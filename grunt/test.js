@@ -7,7 +7,6 @@ module.exports.tasks = {
         options: {
             configFile: 'test/karma.conf.js'
         },
-        // Everyone should have at least this three browsers when testing.
         dev: {
             browsers: ['Chrome', 'Firefox']
         },
@@ -17,14 +16,12 @@ module.exports.tasks = {
             browsers: ['Chrome'],
             singleRun: false
         },
-        // On my machine, I also have Firefox 24 which is in the scope of this project too.
-        // Unfortunately, it is not possible to test it without specifying an explicit path.
-        // Another solution is to write a multi-platform script which will search the binary for all platforms,
-        // too expensive nonetheless.
+        // Example with a custom browser
         jean: {
             browsers: ['Chrome', 'Firefox', 'Opera', '/Applications/Firefox24.app/Contents/MacOS/firefox-bin']
         },
         // Travis configuration
+        // It is easy to test Firefox but a little bit more difficult to test chrome.
         travis: {
             browsers: ['Chrome_travis_ci', 'Firefox']
         }
@@ -33,6 +30,7 @@ module.exports.tasks = {
     // E2E tests
     exec: {
         protractor: 'node node_modules/protractor/bin/protractor test/protractor.conf.js',
+        // I failed to run e2e tests on chrome in Travis CI.
         protractor_travis: 'node node_modules/protractor/bin/protractor test/protractor.conf.js --params.browsers firefox'
     }
 };

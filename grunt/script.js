@@ -27,7 +27,7 @@ module.exports = function (grunt, config) {
                 }
             },
 
-            // Rewrite angular js files to be compatible with a minification process
+            // Rewrite angular functions using dependency injection to be compatible with a minification process.
             ngAnnotate: {
                 options: {
                     add: true,

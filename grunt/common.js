@@ -22,7 +22,7 @@ module.exports = function (grunt, config) {
             bump: {
                 options: {
                     files: ['package.json', 'bower.json'],
-                    commitFiles: ['-a'],
+                    commitFiles: ['package.json', 'bower.json'],
                     pushTo: 'origin'
                 }
             },

@@ -36,11 +36,13 @@ module.exports.tasks = {
         options: {
             logConcurrentOutput: true
         },
-        // Launch a web server and a watch server
+        // Launch a web server and a watch server.
         serve: {
             tasks: ['connect:dev:keepalive', 'chokidar']
         },
-        // Launch a karma server in watch mode for Chrome only and a watch server
+        // Launch a karma server in watch mode for Chrome only and a watch server.
+        // When developing a test case for the first time, I launch karma in watch mode and test in chrome only to have
+        // a quick feedback.
         wtest: {
             tasks: ['karma:dev_mono_watch', 'chokidar']
         }
