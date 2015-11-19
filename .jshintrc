@@ -12,6 +12,7 @@
     "nonbsp": true,
     "undef": true,
     "unused": true,
+    "latedef": "nofunc",
 
     "eqnull": true,
     "expr": true,
