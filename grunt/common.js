@@ -27,7 +27,7 @@ module.exports = function (grunt, config) {
                 }
             },
 
-            // Remplace les tokens de la forme '@@something'.
+            // Replace tokens respecting pattern '@@something'.
             replace: {
                 build: {
                     options: {
