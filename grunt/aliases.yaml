@@ -1,21 +1,12 @@
 
-# Default build for dev
+# Default build
 default:
-    - newer:jshint:dev
-    - newer:jscs
-    - newer:replace
-    - stylus:dev
-    - newer:copy
-    - newer:jade:index
-    - concat
-    - autoprefixer
-    - html2js:dev
-    - ngAnnotate
+    - newdev
 
 
 
-# Default build without usage of newer
-devall:
+# Build whole project for development
+dev:
     - clean:build
     - jshint:dev
     - jscs
@@ -29,8 +20,22 @@ devall:
     - ngAnnotate
 
 
+# Same as dev but build only what changed
+newdev:
+    - newer:jshint:dev
+    - newer:jscs
+    - newer:replace
+    - stylus:dev
+    - newer:copy
+    - newer:jade:index
+    - concat
+    - autoprefixer
+    - html2js:dev
+    - ngAnnotate
 
-# Distribution build: same as defaultAll + uglify
+
+
+# Distribution build: same as dev + uglify
 dist:
     - clean:build
     - jshint:dist
@@ -57,12 +62,12 @@ doc:
 
 # Build then start a web server and open index.html
 serve:
-  - devall
+  - dev
   - connect:dev:keepalive
 
 # Build then start a web server, a watcher and open index.html
 wserve:
-  - devall
+  - dev
   - concurrent:serve
 
 
@@ -70,13 +75,13 @@ wserve:
 # Build then launch karma in single run mode for Chrome and Firefox.
 # Suitable for CI.
 test:
-  - devall
+  - dev
   - karma:dev
 
 # Build then launch karma in watch mode for Chrome only and a watcher (chokidar).
 # Usually you want to test in one browser while developping and test all others after.
 wtest:
-  - devall
+  - dev
   - concurrent:wtest
 
 
@@ -85,7 +90,7 @@ wtest:
 # Build then launch a web server (connect) and protractor in single run mode for Chrome and Firefox
 # Suitable for CI.
 test_e2e:
-  - devall
+  - dev
   - connect:test
   - exec:protractor
 
@@ -95,7 +100,7 @@ test_e2e:
 
 # Travis CI
 test_travis:
-  - devall
+  - dev
   - karma:travis
   - connect:test
   - exec:protractor_travis

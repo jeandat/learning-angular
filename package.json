@@ -6,7 +6,7 @@
     "prestart": "npm install",
     "postinstall": "bower install && node node_modules/protractor/bin/webdriver-manager update",
     "start": "grunt serve",
-    "test": "grunt devall karma:dev connect:test exec:protractor"
+    "test": "grunt dev karma:dev connect:test exec:protractor"
   },
   "license": "MIT",
   "author": "jdat82",

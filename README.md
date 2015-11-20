@@ -8,20 +8,25 @@ This is a very simple project to apprehend Angular, Karma, Protractor, Bower and
 
 To try it, just clone or download the project from github, then `npm start`.
 
-What it does for you is :
+What this command does for you is :
+
 - Install node dependencies: `npm install`
 - Install javascript dependencies: `bower install`
 - Install webdriver-manager (used by protractor for end-to-end tests): `node 
 node_modules/protractor/bin/webdriver-manager update`
 - Build the project and launch a web server: `grunt serve`
 
+This project uses Grunt as a task manager. Grunt tasks are lazy-loaded for performance.
+
 # Build
 
 Project is built inside `build/public`.
 
-Just hit `grunt` to build fastly (only changes) or `grunt devall` to build everything.
+Just hit `grunt dev` to build the whole project for development.
 
-`grunt dist` will build with distribution options although this is not that relevant for that kind of project ;)
+To reduce build time, you can use `grunt` or `grunt newdev` to build only what changed since last build. 
+
+`grunt dist` will build with distribution options although this is not that relevant for this project ;)
 
 # Web server
 
@@ -31,13 +36,24 @@ To launch a local web server and watch for changes: `grunt wserve`.
 
 # Tests
 
+To launch unit and e2e tests in one shot: `npm test`.
+
+## Unit tests
+
 To launch unit tests : `grunt test`.
 
 To launch unit tests and watch for changes : `grunt wtest`.
 
+Unit tests are run by Karma and written with Jasmine: 
+
+- JUnit reports are generated inside `doc/test/junit`
+- Coverage reports are generated with Istanbul inside `doc/test/coverage`
+
+## E2E tests
+
 To launch e2e tests : `grunt test_e2e`.
 
-To launch unit and e2e tests in one shot: `npm test`.
+E2E tests are run by Protractor and written with Jasmine.
 
 # Documentation
 
