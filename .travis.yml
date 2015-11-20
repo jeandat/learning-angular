@@ -17,3 +17,6 @@ script:
   - grunt test_travis
 addons:
   firefox: latest
+branches:
+  only:
+    - master
