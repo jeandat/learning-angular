@@ -13,13 +13,13 @@ html
         div.container-fluid.js-app(ng-app="app", ng-strict-di)
 
             // Navbar
-            nav.row(ng-include="'common/navbar/navbar'", ng-controller="NavbarController")
+            nav.row(ng-include="'common/navbar/navbar.jade'", ng-controller="NavbarController as vm")
 
             // Loading message
-            div#loader(ng-include="'common/loader/loader'", ng-controller='LoaderController')
+            div#loader(ng-include="'common/loader/loader.jade'", ng-controller='LoaderController as vm')
 
             // Breadcrumb : removed cause useless here
-            // div.row(ng-include="'common/breadcrumb/breadcrumb'", ng-controller='BreadcrumbController')
+            // div.row(ng-include="'common/breadcrumb/breadcrumb.jade'", ng-controller='BreadcrumbController')
 
             // Views content injected here
             div.row(ng-view autoscroll="")

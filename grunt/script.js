@@ -11,7 +11,7 @@ module.exports = function (grunt, config) {
 
             // Concatenate js files
             concat: {
-                js: {
+                jsVendor: {
                     files: [
                         // js vendors files
                         {
@@ -36,7 +36,11 @@ module.exports = function (grunt, config) {
                 build: {
                     files: [{
                         dest: '<%= build.pub %>/js/app.js',
-                        src: ['<%= build.gen %>/**/*.js', 'bower_components/angular-markdown-directive/markdown.js']
+                        src: [
+                            '<%= build.gen %>/**/*.module.js',
+                            '<%= build.gen %>/**/*.js',
+                            '!<%= build.gen %>/**/*.spec.js',
+                            'bower_components/angular-markdown-directive/markdown.js']
                     }]
                 }
             },
@@ -63,16 +67,14 @@ module.exports = function (grunt, config) {
             chokidar: {
                 jsVendor: {
                     files: ['bower_components/**', 'vendor/**/*.js'],
-                    tasks: ['concat:js']
+                    tasks: ['newer:concat:jsVendor']
                 },
                 jsApp: {
-                    files: ['src/**/*.js', 'src/**/*.jade', '.jshintrc', '.jscsrc'],
+                    files: ['<%= src %>/**/*.js', '!<%= src %>/**/*.spec.js', '.jshintrc', '.jscsrc'],
                     tasks: [
                         'newer:jshint:dev',
                         'newer:jscs',
                         'newer:replace',
-                        'newer:jade:index',
-                        'html2js',
                         'ngAnnotate']
                 }
             }

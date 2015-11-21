@@ -29,7 +29,7 @@ module.exports = function (grunt) {
     }
     grunt.verbose.writeln('Will use patterns inside file conf/' + patternsFileName + '.js');
     var patterns = require('./conf/' + patternsFileName + '.js');
-    grunt.verbose.writeln('Patterns: ', stringify(patterns));
+    grunt.verbose.writeln('Patterns: ' + stringify(patterns));
 
 
     // Vendors libraries are concatenated during the concat task processing.
@@ -60,9 +60,10 @@ module.exports = function (grunt) {
         config: {
             src: "grunt/*.js"
         },
+        src: 'app',
         build: {
             root: 'build',
-            gen: 'build/gen',
+            gen: 'build/tmp',
             pub: 'build/public'
         },
         patterns: patterns,
@@ -74,7 +75,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig(configs);
 
-    // Register task aliases from aliases.yaml file in grunt.
+    // Register task aliases from aliases.yaml.
     grunt.verbose.writeln('Loading aliases…');
     yaml = require('js-yaml');
     fs = require('fs');

@@ -8,13 +8,15 @@
 
     function CharacterListController($log, characterService, $scope) {
 
+        //var vm = this;
+        $scope.characters = characterService.characters().$object;
+
         activate();
 
         ////////////////
 
         function activate() {
-            $log.debug('Character List Controller');
-            $scope.characters = characterService.characters().$object;
+            $log.debug('CharacterListController instantiated');
         }
     }
 

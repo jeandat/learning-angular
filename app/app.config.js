@@ -1,8 +1,11 @@
-angular.module('app', ['ngRoute', 'templates', 'restangular', 'btford.markdown'])
+(function () {
+    'use strict';
 
+    angular
+        .module('app')
+        .config(appConfig);
 
-    // App routes
-    .config(function ($routeProvider, $locationProvider, RestangularProvider, $httpProvider, $compileProvider) {
+    function appConfig($routeProvider, $locationProvider, RestangularProvider, $httpProvider, $compileProvider) {
 
         // Remove angular debug info in DOM when compiling for production
         $compileProvider.debugInfoEnabled('@@env' === 'dev');
@@ -15,19 +18,19 @@ angular.module('app', ['ngRoute', 'templates', 'restangular', 'btford.markdown']
         // Define app routes
         $routeProvider
             .when('/', {
-                templateUrl: 'home/home',
+                templateUrl: 'home/home.jade',
                 controller: 'HomeController'
             })
             .when('/comic', {
-                templateUrl: 'comic/comicList',
+                templateUrl: 'comic/comic-list.jade',
                 controller: 'ComicListController'
             })
             .when('/comic/:id', {
-                templateUrl: 'comic/comicDetail',
+                templateUrl: 'comic/comic-detail.jade',
                 controller: 'ComicDetailController'
             })
             .when('/character', {
-                templateUrl: 'character/characterList',
+                templateUrl: 'character/character-list.jade',
                 controller: 'CharacterListController'
             })
             .otherwise('/');
@@ -42,28 +45,28 @@ angular.module('app', ['ngRoute', 'templates', 'restangular', 'btford.markdown']
         RestangularProvider.setDefaultRequestParams({apikey: '0a52dbf67ba6feb10084654c8a41e770'});
 
         // Define which property in JSON responses contains functional data
-        RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response) {
+        RestangularProvider.addResponseInterceptor(function (data, operation, what, url, response) {
 
             var results = data && data.data && data.data.results;
 
-            var parseError = function(res){
-                if(!data){
+            var parseError = function (res) {
+                if (!data) {
                     res.status = response.status;
                     return res;
                 }
-                else if(data.data && !results){
+                else if (data.data && !results) {
                     res.status = data.data.code;
                     res.message = data.data.status;
                     return res;
                 }
-                else{
+                else {
                     return res;
                 }
             };
 
             var res;
 
-            switch(operation){
+            switch (operation) {
                 case 'getList':
                     res = parseError([]);
                     return res.status != null ? res : results;
@@ -83,42 +86,25 @@ angular.module('app', ['ngRoute', 'templates', 'restangular', 'btford.markdown']
 
 
         // This http interceptor defines a basic loader mechanism based only on networking activity.
-        $httpProvider.interceptors.push(function($rootScope) {
+        $httpProvider.interceptors.push(function ($rootScope) {
             return {
-                request: function(config) {
+                request: function (config) {
                     $rootScope.$broadcast('loader:show');
                     return config;
                 },
 
-                responseError: function(rejection){
+                responseError: function (rejection) {
                     $rootScope.$broadcast('loader:error', rejection);
                     return rejection;
                 },
 
-                response: function(response) {
+                response: function (response) {
                     $rootScope.$broadcast('loader:hide');
                     return response;
                 }
             };
         });
 
-    })
+    }
 
-
-    // App version from package.json
-    .constant('version', '@@version')
-
-
-    // Simple hint that angular has started
-    .run(function ($log) {
-
-        $log.info('App started');
-
-    });
-
-
-
-// Global utility function
-window.stringify = function(value){
-    return JSON.stringify(value, null, '    ');
-};
+})();

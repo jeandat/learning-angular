@@ -3,9 +3,9 @@
 
     angular
         .module('app')
-        .factory('characterService', characterService);
+        .factory('characterService', characterFactory);
 
-    function characterService ($log, Restangular) {
+    function characterFactory ($log, Restangular) {
 
         var service = {
             characters: characters
@@ -13,11 +13,19 @@
 
         var Character = Restangular.all('characters');
 
+        activate();
+
+        return service;
+
+        ////////////////
+
+        function activate(){
+            $log.debug('characterService instantiated:', service);
+        }
+
         function characters(){
             return Character.getList();
         }
-
-        return service;
     }
 
 })();

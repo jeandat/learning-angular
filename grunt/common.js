@@ -19,6 +19,7 @@ module.exports = function (grunt, config) {
                 }
             },
 
+            // Utility so useful for versioning
             bump: {
                 options: {
                     files: ['package.json', 'bower.json'],
@@ -37,7 +38,7 @@ module.exports = function (grunt, config) {
                     },
                     filter: 'isFile',
                     expand: 'true',
-                    cwd: 'src',
+                    cwd: '<%= src %>',
                     src: ['**'],
                     dest: '<%= build.gen %>'
                 }
