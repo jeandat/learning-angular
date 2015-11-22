@@ -5,11 +5,15 @@ module.exports = function (config) {
     var configuration = {
         basePath: '..',
         files: [
+            // vendors
             'build/public/js/vendors.js',
             'bower_components/angular-mocks/angular-mocks.js',
+            // app
             'build/public/js/templates.js',
             'build/public/js/app.js',
-            'test/unit/**/*.js'],
+            // specs from `app/` and `test/unit/`
+            'build/tmp/**/*.spec.js',
+            'test/unit/**/*.spec.js'],
         singleRun: true,
         logLevel: 'INFO',
         frameworks: ['jasmine'],

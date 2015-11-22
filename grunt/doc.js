@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                 options: {
                     out: 'doc/groc/'
                 },
-                src: ['src/**/*.js', 'test/unit/**/*.js']
+                src: ['<%= src %>/**/*.js', 'test/unit/**/*.js']
             },
 
             // Generate statistics about code quality
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     dest: 'doc/plato/',
-                    src: ['src/**/*.js']
+                    src: ['<%= src %>/**/*.js']
                 }
             }
         }

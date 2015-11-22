@@ -1,7 +1,7 @@
 'use strict';
 
 var jadeTemplates = {
-    '<%= build.pub %>/js/templates.js': ['src/**/*.jade', '!src/index.jade']
+    '<%= build.pub %>/js/templates.js': ['<%= src %>/**/*.jade', '!<%= src %>/index.jade']
 };
 
 module.exports.tasks = {
@@ -10,14 +10,14 @@ module.exports.tasks = {
     jade: {
         index: {
             dest: '<%= build.pub %>/index.html',
-            src: '<%= build.gen %>/index.jade'
+            src: '<%= build.gen %>/app.jade'
         }
     },
 
     // Pre process all other jade templates as an angular module
     html2js: {
         options: {
-            base: 'src',
+            base: '<%= src %>',
             module: 'templates',
             quoteChar: '\'',
             indentString: '    ',
@@ -27,9 +27,6 @@ module.exports.tasks = {
                 // e.g. 'div(ui-view)' becomes '<div ui-view></div>'
                 //     instead of '<div ui-view='ui-view'></div>'
                 doctype: 'html'
-            },
-            rename: function (moduleName) {
-                return moduleName.replace('.jade', '');
             }
         },
         dev: {
@@ -45,6 +42,18 @@ module.exports.tasks = {
                 }
             },
             files: jadeTemplates
+        }
+    },
+
+    // Watcher for jade templates converted to html
+    chokidar:{
+        htmlTemplate: {
+            files: ['<%= src %>/app.jade'],
+            tasks:['newer:replace', 'jade:index']
+        },
+        jsTemplate:{
+            files: ['<%= src %>/**/*.jade', '!<%= src %>/app.jade'],
+            tasks: ['newer:replace', 'html2js:dev']
         }
     }
 };

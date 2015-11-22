@@ -9,7 +9,7 @@ module.exports.tasks = {
     // Pre process stylus files
     stylus: {
         options: {
-            paths: ['src/common/styles/']
+            paths: ['<%= src %>/common/styles/']
         },
         dev: {
             options: {
@@ -29,7 +29,7 @@ module.exports.tasks = {
                 return src.replace(/\/\/# sourceMappingURL.*/, '');
             }
         },
-        css: {
+        cssVendor: {
             files: [
                 // css vendors files
                 {
@@ -60,12 +60,12 @@ module.exports.tasks = {
     // Watcher for css files
     chokidar: {
         cssApp: {
-            files: ['src/**/*.styl'],
+            files: ['<%= src %>/**/*.styl'],
             tasks: ['newer:replace', 'stylus:dev', 'autoprefixer:app']
         },
         cssVendor: {
             files: ['vendor/**/*.css'],
-            tasks: ['concat:css', 'autoprefixer:vendor']
+            tasks: ['concat:cssVendor', 'autoprefixer:vendor']
         }
     }
 };

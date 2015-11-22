@@ -1,0 +1,18 @@
+
+div#comic-detail.content
+
+    div.media-info
+        | {{vm.novel.title}}
+
+    <br>
+
+    div.media-info
+        | {{vm.novel.description}}
+
+    <br>
+
+    button.render-image.btn.btn-info(type='button', ng-repeat='img in vm.novel.images', ng-click='vm.renderImage($index)',
+    ng-show='vm.novel.images.length && !vm.image') Image {{$index+1}}
+
+    div.image-container
+        img(ng-src='{{vm.image}}', ng-show='vm.image', ng-click='vm.image = null')

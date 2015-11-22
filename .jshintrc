@@ -12,6 +12,7 @@
     "nonbsp": true,
     "undef": true,
     "unused": true,
+    "latedef": "nofunc",
 
     "eqnull": true,
     "expr": true,
@@ -28,7 +29,6 @@
         "expect": false,
         "inject": false,
         "module": false,
-        "spyOn": false,
-        "stringify": false
+        "spyOn": false
     }
 }

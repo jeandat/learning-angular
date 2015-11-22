@@ -21,3 +21,4 @@ angular.module('app').controller('BreadcrumbController', function($log, $scope, 
     });
 
 });
+
