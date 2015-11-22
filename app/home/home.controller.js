@@ -5,11 +5,11 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    function HomeController($scope, $http, $log) {
+    function HomeController($http, $log) {
 
-        //var vm = this;
-        $scope.conclusions = '';
-        $scope.showConclusions = showConclusions;
+        var vm = this;
+        vm.conclusions = '';
+        vm.showConclusions = showConclusions;
 
         activate();
 
@@ -21,7 +21,7 @@
 
         function showConclusions() {
             $http.get('CONCLUSIONS.MD').then(function (data) {
-                $scope.conclusions = data.data;
+                vm.conclusions = data.data;
             });
         }
 

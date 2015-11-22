@@ -6,10 +6,10 @@
         .module('app')
         .controller('CharacterListController', CharacterListController);
 
-    function CharacterListController($log, characterService, $scope) {
+    function CharacterListController($log, characterService) {
 
-        //var vm = this;
-        $scope.characters = characterService.characters().$object;
+        var vm = this;
+        vm.characters = characterService.characters().$object;
 
         activate();
 

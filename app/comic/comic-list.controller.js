@@ -5,10 +5,10 @@
         .module('app')
         .controller('ComicListController', ComicListController);
 
-    function ComicListController($log, $scope, comicService) {
+    function ComicListController($log, comicService) {
 
-        //var vm = this;
-        $scope.novels = comicService.graphicNovels().$object;
+        var vm = this;
+        vm.novels = comicService.graphicNovels().$object;
 
         activate();
 

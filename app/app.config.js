@@ -19,19 +19,23 @@
         $routeProvider
             .when('/', {
                 templateUrl: 'home/home.jade',
-                controller: 'HomeController'
+                controller: 'HomeController',
+                controllerAs: 'vm'
             })
             .when('/comic', {
                 templateUrl: 'comic/comic-list.jade',
-                controller: 'ComicListController'
+                controller: 'ComicListController',
+                controllerAs: 'vm'
             })
             .when('/comic/:id', {
                 templateUrl: 'comic/comic-detail.jade',
-                controller: 'ComicDetailController'
+                controller: 'ComicDetailController',
+                controllerAs: 'vm'
             })
             .when('/character', {
                 templateUrl: 'character/character-list.jade',
-                controller: 'CharacterListController'
+                controller: 'CharacterListController',
+                controllerAs: 'vm'
             })
             .otherwise('/');
 

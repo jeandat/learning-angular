@@ -1,5 +1,5 @@
 div#comic-list.content
 
     ul.list
-        li(ng-repeat="novel in novels", ng-class-odd="'odd'" class="comic-item")
+        li(ng-repeat="novel in vm.novels track by novel.id", ng-class-odd="'odd'" class="comic-item")
             comic-list-item

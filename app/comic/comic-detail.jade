@@ -2,17 +2,17 @@
 div#comic-detail.content
 
     div.media-info
-        | {{novel.title}}
+        | {{vm.novel.title}}
 
     <br>
 
     div.media-info
-        | {{novel.description}}
+        | {{vm.novel.description}}
 
     <br>
 
-    button.render-image.btn.btn-info(type='button', ng-repeat='img in novel.images', ng-click='renderImage($index)',
-    ng-show='novel.images.length && !image') Image {{$index+1}}
+    button.render-image.btn.btn-info(type='button', ng-repeat='img in vm.novel.images', ng-click='vm.renderImage($index)',
+    ng-show='vm.novel.images.length && !vm.image') Image {{$index+1}}
 
     div.image-container
-        img(ng-src='{{image}}', ng-show='image', ng-click='image = null')
+        img(ng-src='{{vm.image}}', ng-show='vm.image', ng-click='vm.image = null')

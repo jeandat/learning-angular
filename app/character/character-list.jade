@@ -1,5 +1,5 @@
 div#character-list.content
 
     ul.list
-        li(ng-repeat="character in characters", ng-class-odd="'odd'")
+        li( ng-repeat="character in vm.characters track by character.id", ng-class-odd="'odd'")
             | {{character.name}}
