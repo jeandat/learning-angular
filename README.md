@@ -18,6 +18,8 @@ node_modules/protractor/bin/webdriver-manager update`
 
 This project uses Grunt as a task manager. Grunt tasks are lazy-loaded for performance.
 
+This project tries to respect [guidelines from the Angular team](https://github.com/johnpapa/angular-styleguide#exception-handling). 
+
 # Prerequisite
 
 You should install grunt and bower globally if not done already : `npm i -g grunt-cli bower`.
