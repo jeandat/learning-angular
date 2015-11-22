@@ -18,6 +18,10 @@ node_modules/protractor/bin/webdriver-manager update`
 
 This project uses Grunt as a task manager. Grunt tasks are lazy-loaded for performance.
 
+# Prerequisite
+
+You should install grunt and bower globally if not done already : `npm i -g grunt-cli bower`.
+
 # Build
 
 Project is built inside `build/public`.
