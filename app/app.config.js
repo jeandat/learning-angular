@@ -3,13 +3,17 @@
 
     angular
         .module('app')
-        .config(appConfig);
+        .config(appConfig)
+        .config(routeConfig)
+        .config(restConfig)
+        .config(httpConfig);
 
-    function appConfig($routeProvider, $locationProvider, RestangularProvider, $httpProvider, $compileProvider) {
-
+    function appConfig($compileProvider) {
         // Remove angular debug info in DOM when compiling for production
         $compileProvider.debugInfoEnabled('@@env' === 'dev');
+    }
 
+    function routeConfig($routeProvider, $locationProvider) {
 
         // Disable hashbang mode if possible
         $locationProvider.html5Mode(true);
@@ -39,8 +43,10 @@
             })
             .otherwise('/');
 
+    }
 
-        // Restangular configuration
+    // Restangular configuration
+    function restConfig(RestangularProvider) {
 
         // All xhr requests url will have this prefix
         RestangularProvider.setBaseUrl('http://gateway.marvel.com:80/v1/public');
@@ -88,6 +94,9 @@
             selfLink: 'resourceURI'
         });
 
+    }
+
+    function httpConfig($httpProvider) {
 
         // This http interceptor defines a basic loader mechanism based only on networking activity.
         $httpProvider.interceptors.push(function ($rootScope) {
@@ -108,7 +117,7 @@
                 }
             };
         });
-
     }
 
 })();
+
