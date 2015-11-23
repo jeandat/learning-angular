@@ -6,13 +6,13 @@ module.exports = function (config) {
         basePath: '..',
         files: [
             // vendors
-            'build/public/js/vendors.js',
+            'public/js/vendors.js',
             'bower_components/angular-mocks/angular-mocks.js',
             // app
-            'build/public/js/templates.js',
-            'build/public/js/app.js',
+            'public/js/templates.js',
+            'public/js/app.js',
             // specs from `app/` and `test/unit/`
-            'build/tmp/**/*.spec.js',
+            '.tmp/**/*.spec.js',
             'test/unit/**/*.spec.js'],
         singleRun: true,
         logLevel: 'INFO',
