@@ -15,7 +15,7 @@ module.exports = function (grunt, config) {
                     files: [
                         // js vendors files
                         {
-                            dest: '<%= build.pub %>/js/vendors.js',
+                            dest: '<%= pub %>/js/vendors.js',
                             src: ['bower_components/jquery/dist/jquery' + min + '.js',
                                 'bower_components/lodash/lodash' + min + '.js',
                                 'bower_components/angular/angular' + min + '.js',
@@ -35,11 +35,11 @@ module.exports = function (grunt, config) {
                 },
                 build: {
                     files: [{
-                        dest: '<%= build.pub %>/js/app.js',
+                        dest: '<%= pub %>/js/app.js',
                         src: [
-                            '<%= build.gen %>/**/*.module.js',
-                            '<%= build.gen %>/**/*.js',
-                            '!<%= build.gen %>/**/*.spec.js',
+                            '<%= tmp %>/**/*.module.js',
+                            '<%= tmp %>/**/*.js',
+                            '!<%= tmp %>/**/*.spec.js',
                             'bower_components/angular-markdown-directive/markdown.js']
                     }]
                 }
@@ -57,8 +57,8 @@ module.exports = function (grunt, config) {
                         screwIE8: true
                     },
                     files: [{
-                        dest: '<%= build.pub %>/js/app.js',
-                        src: '<%= build.pub %>/js/app.js'
+                        dest: '<%= pub %>/js/app.js',
+                        src: '<%= pub %>/js/app.js'
                     }]
                 }
             },

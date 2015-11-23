@@ -1,7 +1,7 @@
 'use strict';
 
 var stylusFiles = {
-    '<%= build.pub %>/css/app.css': ['<%= build.gen %>/**/*.styl']
+    '<%= pub %>/css/app.css': ['<%= tmp %>/**/*.styl']
 };
 
 module.exports = function () {
@@ -36,7 +36,7 @@ module.exports = function () {
                     files: [
                         // css vendors files
                         {
-                            dest: '<%= build.pub %>/css/vendor.css',
+                            dest: '<%= pub %>/css/vendor.css',
                             src: ['vendor/bootstrap/css/bootstrap-theme.css',
                                 'vendor/bootstrap/css/bootstrap.css']
                         }]
@@ -50,12 +50,12 @@ module.exports = function () {
                 },
                 vendor: {
                     files: {
-                        '<%= build.pub %>/css/vendor.css': '<%= build.pub %>/css/vendor.css'
+                        '<%= pub %>/css/vendor.css': '<%= pub %>/css/vendor.css'
                     }
                 },
                 app: {
                     files: {
-                        '<%= build.pub %>/css/app.css': '<%= build.pub %>/css/app.css'
+                        '<%= pub %>/css/app.css': '<%= pub %>/css/app.css'
                     }
                 }
             },

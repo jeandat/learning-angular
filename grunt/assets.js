@@ -5,7 +5,7 @@ module.exports.tasks = {
     copy: {
         build: {
             files: [{
-                dest: '<%= build.pub %>',
+                dest: '<%= pub %>',
                 src: ['CONCLUSIONS.MD'],
                 expand: true
             }]

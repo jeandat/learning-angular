@@ -61,11 +61,8 @@ module.exports = function (grunt) {
             src: "grunt/*.js"
         },
         src: 'app',
-        build: {
-            root: 'build',
-            gen: 'build/tmp',
-            pub: 'build/public'
-        },
+        tmp: '.tmp',
+        pub: 'public',
         patterns: patterns,
         min: min ? '.min' : ''
     };

@@ -1,7 +1,7 @@
 'use strict';
 
 var jadeTemplates = {
-    '<%= build.pub %>/js/templates.js': ['<%= src %>/**/*.jade', '!<%= src %>/index.jade']
+    '<%= pub %>/js/templates.js': ['<%= src %>/**/*.jade', '!<%= src %>/index.jade']
 };
 
 module.exports.tasks = {
@@ -9,8 +9,8 @@ module.exports.tasks = {
     // Pre process the only template that is converted to pure html (our main entry).
     jade: {
         index: {
-            dest: '<%= build.pub %>/index.html',
-            src: '<%= build.gen %>/app.jade'
+            dest: '<%= pub %>/index.html',
+            src: '<%= tmp %>/app.jade'
         }
     },
 

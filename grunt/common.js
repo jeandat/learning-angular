@@ -9,7 +9,7 @@ module.exports = function (grunt, config) {
 
             clean: {
                 build: {
-                    src: ['<%= build.root %>/']
+                    src: ['<%= tmp %>/*', '<%= pub %>/*']
                 },
                 doc: {
                     src: ['doc']
@@ -40,7 +40,7 @@ module.exports = function (grunt, config) {
                     expand: 'true',
                     cwd: '<%= src %>',
                     src: ['**'],
-                    dest: '<%= build.gen %>'
+                    dest: '<%= tmp %>'
                 }
             }
         }

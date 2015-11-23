@@ -7,7 +7,7 @@ module.exports.tasks = {
 
     connect: {
         options: {
-            base: '<%= build.pub %>',
+            base: '<%= pub %>',
             port: 9001,
             debug: true,
             middleware: function (connect, options, middlewares) {
