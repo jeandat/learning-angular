@@ -1,6 +1,7 @@
 
 [![Build Status](https://travis-ci.org/jdat82/learning-angular.svg)](https://travis-ci.org/jdat82/learning-angular)
-![](https://img.shields.io/david/dev/jdat82/learning-angular.svg)
+[![NPM dev dependencies](https://img.shields.io/david/dev/jdat82/learning-angular.svg)](https://david-dm.org/jdat82/learning-angular#info=devDependencies&view=table)
+[![NPM Release](https://img.shields.io/github/release/jdat82/learning-angular.svg)](https://github.com/jdat82/learning-angular/releases)
 
 # Overview
 
