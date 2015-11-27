@@ -1,4 +1,4 @@
-describe('comicFactory: ', function () {
+describe('comicService: ', function () {
 
     var comicService, $httpBackend;
 
