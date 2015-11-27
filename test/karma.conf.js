@@ -19,10 +19,10 @@ module.exports = function (config) {
         frameworks: ['jasmine'],
         reporters: ['progress', 'coverage', 'junit'],
         preprocessors: {
-            'build/gen/js/**/*.js': ['coverage']
+            '.tmp/**/!(*spec).js': ['coverage']
         },
         coverageReporter: {
-            type: 'html',
+            type: 'lcov',
             dir: 'doc/test/coverage'
         },
         junitReporter: {

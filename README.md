@@ -27,7 +27,7 @@ You should install grunt and bower globally if not done already : `npm i -g grun
 
 # Build
 
-Project is built inside `build/public`.
+Project is built inside `public`.
 
 Just hit `grunt dev` to build the whole project for development.
 
