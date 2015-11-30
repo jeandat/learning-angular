@@ -10,7 +10,9 @@ module.exports = function (config) {
             'bower_components/angular-mocks/angular-mocks.js',
             // app
             'public/js/templates.js',
-            'public/js/app.js',
+            '.tmp/**/*.module.js',
+            '.tmp/**/!(*.spec).js',
+            'bower_components/angular-markdown-directive/markdown.js',
             // specs from `app/` and `test/unit/`
             '.tmp/**/*.spec.js',
             'test/unit/**/*.spec.js'],
@@ -19,7 +21,7 @@ module.exports = function (config) {
         frameworks: ['jasmine'],
         reporters: ['progress', 'coverage', 'junit'],
         preprocessors: {
-            '.tmp/**/!(*spec).js': ['coverage']
+            '.tmp/**/!(*.spec).js': ['coverage']
         },
         coverageReporter: {
             type: 'lcov',
